@@ -44,8 +44,10 @@ body * {
 }
 
 #container {
-  width: 360px;
+  width: 100%;
+  max-width: 588px;
   margin: 56px auto 0px auto;
+  padding: 0 24px;
 }
 
 /* profile */
@@ -85,11 +87,16 @@ body * {
   /* Alinhas itens em position: absolute*/
   top: 50%;
   transform: translateY(-50%);
+
+  animation: slide-button-back 0.4s;
 }
 
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: slide-button 0.4s forwards;
+}
+
+#switch button:hover{
+  outline: 8px solid var(--highlight-color);
 }
 
 #switch span {
@@ -159,4 +166,34 @@ footer {
 
 footer a{
   text-decoration: underline;
+}
+
+/* media queries */
+@media (min-width: 700px) {
+  :root {
+    --bg-url: url(./imagens/bg-desktop.jpg)
+  }
+
+  .light {
+    --bg-url: url(./imagens/bg-desktop-light.jpg)
+  }
+}
+
+/* animations */
+@keyframes slide-button {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-button-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
+  }
 }
